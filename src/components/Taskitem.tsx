@@ -9,7 +9,7 @@ interface TasksProps {
     task: Task;
     toggleTaskDone: (id: number) => void;
     removeTask: (id: number) => void;
-    editTask: (id: number, newTitle: string) => void;
+    editTask: (id: number, newTitle: string) => boolean;
 }
 
 export function Taskitem({ task, toggleTaskDone, removeTask, editTask }: TasksProps) {
@@ -28,7 +28,7 @@ export function Taskitem({ task, toggleTaskDone, removeTask, editTask }: TasksPr
     }
 
     function handleEdit() {
-        editTask(task.id, title)
+        editTask(task.id, title) ? true : setTitle(task.title)
         setIsEditing(false)
     }
 

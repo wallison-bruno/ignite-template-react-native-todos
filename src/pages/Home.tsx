@@ -67,7 +67,7 @@ export function Home() {
     const isEquals = tasks.find(item => item.title === taskNewTitle)
     if (isEquals) {
       Alert.alert('Task já cadastrada', 'Você não pode cadastrar uma task com o mesmo nome')
-
+      return false;
     } else {
       const newTask = tasks.map(item => {
         if (taskId === item.id) {
@@ -81,6 +81,7 @@ export function Home() {
         }
       })
       setTasks(newTask)
+      return true;
     }
   }
 
